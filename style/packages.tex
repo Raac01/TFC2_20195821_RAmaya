@@ -1,0 +1,210 @@
+% Modificaciones generales para el documento
+% Por E.Vidal
+% v0.1 09/24.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Packages related to general page setup
+%\usepackage[hmargin={2.0cm,2.0cm},height=24cm]{geometry}
+\usepackage{lipsum}         % Eliminar este paquet#e solo es para generar texto de muestra.
+\usepackage[onehalfspacing]{setspace}   % distance between lines 1-1/2-lines
+\usepackage[utf8]{inputenc} % caracteres especiales como la ñ
+\usepackage[spanish]{babel} % caracteres del español
+\usepackage[T1]{fontenc}    % correcta representacion de varias tildes/acentos, p.ej. en alemán 'ß'
+\usepackage{csquotes}
+\usepackage[backend=biber,natbib=true,style=apa]{biblatex}
+\setlength\bibitemsep{0.6\baselineskip} % Adds spaces between references entries
+\addbibresource{style/bibliografia.bib}
+%% Global change of the font
+\usepackage{lmodern}           % latin modern typography
+\usepackage{titling}           %to ensure image on cover (caratula)
+% commands for including the picture
+\newcommand{\titlepicture}[2][]{%
+  \renewcommand\placetitlepicture{%
+    \includegraphics[#1]{#2}\par\medskip
+  }%
+}
+\linespread{1.25}
+\newcommand{\placetitlepicture}{} % initialization
+\usepackage{scrhack} % get rid of warning "\float@addtolists detected"
+\usepackage[automark]{scrlayer-scrpage}  
+\pagestyle{scrheadings}		           % find explanation in scrguide.pdf 
+\clearpairofpagestyles
+% To have: "Chapter X. ..."
+\renewcommand*{\chapterformat}{\mbox{\chapapp{\nobreakspace}\thechapter\autodot\IfUsePrefixLine{}{\enskip}}}
+\renewcommand*{\chaptermarkformat}{\chapapp~\thechapter\autodot\enskip}
+%\automark[subsection]{section}        % section im Header with Nr.  -- still not working.
+% oneside optionen Kopfzeile:
+\ihead[]{\headmark} 
+\chead[]{}
+\ohead[]{\namedesautors}
+% oneside optionen Fußzeile:
+\ifoot[]{}
+\cfoot[\thepage]{}
+\ofoot[]{\thepage}
+%\addtokomafont{pagehead}{\upshape}% header upshape instead italic
+%
+% twoside optionen Kopfzeile:
+%\lehead[Inhalt plain.scrheadings]{Inhalt scrheadings}
+%\cehead[Inhalt plain.scrheadings]{Inhalt scrheadings}
+%\rehead[Inhalt plain.scrheadings]{Inhalt scrheadings}
+%\lohead[Inhalt plain.scrheadings]{Inhalt scrheadings}
+%\cohead[Inhalt plain.scrheadings]{Inhalt scrheadings}
+%\rohead[Inhalt plain.scrheadings]{Inhalt scrheadings}
+% twoside optionen Fußzeile:
+%\lefoot[Inhalt plain.scrheadings]{Inhalt scrheadings}
+%\cefoot[Inhalt plain.scrheadings]{Inhalt scrheadings}
+%\refoot[Inhalt plain.scrheadings]{Inhalt scrheadings}
+%\lofoot[Inhalt plain.scrheadings]{Inhalt scrheadings}
+%\cofoot[Inhalt plain.scrheadings]{Inhalt scrheadings}
+%\rofoot[Inhalt plain.scrheadings]{Inhalt scrheadings}
+\addtokomafont{chapter}{\fontsize{14}{12}\selectfont}
+\addtokomafont{section}{\large}
+\addtokomafont{subsection}{\large}
+\addtokomafont{subsubsection}{\large}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Table of Contents (ToC) re-Declaration
+\newcommand\partentrynumberformat[1]{\partname\ #1}
+\RedeclareSectionCommand[
+  tocentrynumberformat=\partentrynumberformat,
+  tocnumwidth=4em
+]{part}
+
+\newcommand\chapterentrynumberformat[1]{\chapapp\ #1}
+\RedeclareSectionCommand[
+    tocentrynumberformat=\chapterentrynumberformat,
+    tocnumwidth=5.5em
+]{chapter}
+
+\newcommand*{\appendixmore}{
+  \renewcommand*{\chapterformat}{\appendixname~{\nobreakspace}\thechapter\enskip}%
+  \renewcommand*{\chaptermarkformat}{\appendixname~{\nobreakspace}\thechapter\enskip}%
+  \addtocontents{toc}{\protect\appendixtocentry}%
+}
+
+\newcommand*{\appendixtocentry}{%
+  \DeclareTOCStyleEntry[
+    entrynumberformat=\appendixprefixfixintoc,
+    dynnumwidth
+  ]{default}{chapter}%
+}
+\newcommand{\appendixprefixfixintoc}[1]{%
+  \def\autodot{}%
+  \appendixname~#1%
+}
+
+\RedeclareSectionCommand[tocindent=5.5em]{section}
+\RedeclareSectionCommand[tocindent=7.8em]{subsection}
+\RedeclareSectionCommand[tocindent=11em,toclevel=3]{subsubsection} % Asegura que aparezca en el TOC
+\setcounter{tocdepth}{3}  % Muestra hasta subsubsection en el índice
+\setcounter{secnumdepth}{3}
+ % Numera hasta subsubsection
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% set indentation
+\def\EspaciadoInicioParrafo{20 pt}
+\def\EspaciadoEntreParrafos{0 pt}
+\def\EspacioEnBlancoLastLine{0pt plus 1fil}         %white space required at the end of the last line
+\setparsizes{\EspaciadoInicioParrafo}{\EspaciadoEntreParrafos}{\EspacioEnBlancoLastLine}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Packages related to AUTHOR
+\input{style/autor_information}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Packages related to general page setup
+\usepackage[table,xcdraw,dvipsnames]{xcolor}%para definir colores
+\usepackage{hyperref}    % enable hyperrefs
+\PassOptionsToPackage{unicode}{hyperref}
+\pdfstringdefDisableCommands{%
+  \def\\{}%
+  \def\texttt#1{<#1>}%
+}
+%-- hypersetup
+\hypersetup{
+	pdftitle     = {\titelderarbeit},
+	pdfsubject   = {\artderarbeit},
+	pdfauthor    = {\namedesautors},
+	pdfkeywords  = {\artderarbeit; \namedesfachgebiets; {\nameUniversity};},
+	colorlinks   = true,
+	linkcolor    = white!0!black,
+	urlcolor     = white!0!black,
+	citecolor    = black,
+	pdfstartview = {Fit}
+}
+\usepackage{pdfpages}
+
+\usepackage{tikz}
+%\usetikzlibrary{arrows.meta} % Para estilos de punta de flecha
+
+
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.18}
+
+
+\usepackage{xcolor}
+
+
+\usepackage[printonlyused]{acronym} %for acronyms
+\renewcaptionname{spanish}{\listtablename}{\'Indice de tablas}
+\renewcaptionname{spanish}{\listfigurename}{\'Indice de figuras}
+\renewcaptionname{spanish}{\tablename}{Tabla} %used on longtblr
+\renewcaptionname{spanish}{\appendixname}{Anexo} 
+\spanishlcroman
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Common Packages
+\usepackage{graphicx} %para insertar imagenes
+%\graphicspath{{./bilder/}}   % Path to images (optional)
+\usepackage{epsfig}           % Package to link postscript Graphics
+%\usepackage{float}           % Macro which helps to correctly display the position of graphics
+
+\usepackage{mdframed}  % Para crear recuadros personalizados
+\usepackage{amsmath} 
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{siunitx}
+\usepackage[shortcuts]{extdash}
+\usepackage[printonlyused]{acronym} %for acronyms
+\makeatletter
+\newif\if@in@acrolist
+\AtBeginEnvironment{acronym}{\@in@acrolisttrue}
+\newrobustcmd{\LU}[2]{\if@in@acrolist#1\else#2\fi}
+
+\newcommand{\ACF}[1]{{\@in@acrolisttrue\acf{#1}}}
+\makeatother
+%insertar tablas
+\usepackage{codehigh} % Para usar \fakeverb (similar a \verb!!) dentro de tablas
+\usepackage{tabularx} % Asegúrate de tener cargado este paquete / util para centrar imagenes
+\usepackage{array}    % Para mejorar el control del ancho de las columnas
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{tabularray}
+\setlength\bibitemsep{0.6\baselineskip} % Adds spaces between references entries
+\usepackage{hhline} % For \hhline in tables
+\DefTblrTemplate{contfoot-text}{default}{Continúa en la siguiente página}
+\DefTblrTemplate{conthead-text}{default}{(Continúa)}
+\SetTblrTemplate{contfoot-text}{default}
+\SetTblrTemplate{conthead-text}{default}
+\UseTblrLibrary{amsmath}
+%See https://tex.stackexchange.com/questions/621766/figures-with-caption-inside-tabularray-tblr-tables
+%% also: https://github.com/lvjr/tabularray/discussions/47
+\UseTblrLibrary{counter,varwidth} %To fix some counter in images within tables
+\NewTblrTheme{pucp}{
+\SetTblrStyle{firsthead}{}
+\SetTblrTemplate{contfoot-text}{normal}
+\SetTblrTemplate{conthead-text}{normal}
+}
+
+\usepackage{bigstrut}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{longtable}
+\captionsetup[table]{name = Tabla}
+\usepackage{subcaption}
+%par formato APA
+%\captionsetup{justification=raggedright, singlelinecheck=false} 
+\usepackage{placeins}  % Colocar en el preámbulo
+\KOMAoptions{DIV=last}  %recalculates the dimensions, siempre al final.
+%User defined commands
+\input{style/usDefCmd/Math.tex}
+\input{style/usDefCmd/DefsConstants.tex}
+
+

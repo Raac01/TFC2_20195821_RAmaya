@@ -1,0 +1,76 @@
+\documentclass[a4paper,	    % Page size Din-A4
+parskip=half, 				% Paragraphs are marked by a 
+% vertical distance of one line, (further options: off, 
+% false, half, full-, full*, half-, half*)
+% fontsize=12pt,			% Font size
+% chapterprefix,
+appendixprefix=true,        % no prefixline for appendix chapters
+headings=onelineappendix,   %
+listof=totoc,
+toc=graduated,
+oneside,					% One page Dokument, (alternative: twoside)
+titlepage=true,				% Front page to be designed
+abstract=true,				% An abstact should be shown.
+BCOR=3mm,					% Binding correction value (tested at: 17mm)
+headsepline=true,  			% inserts line between header and text (on:true, off:false)
+%footsepline=true,			% inserts line between footer and text (on:true, off:false)
+singlespacing=true,         % Simply force line spacing in header and footer
+bibliography=numbered, 		% Heading number in the bibliography (not numbered in the table of contents use: notnumbered)
+%bibliography=leveldown,	% Move table of contents down one level
+DIV=14,						% Factor to calculate cannon of page construction ( Satzspiegels )
+draft=false,				% draft modus, on (option: true) or off (option: false)
+]{scrreprt}    % document style: "article" from KOMA-Skript package, more  can be found on scrguide.pdf (look at internet.) 
+\input{style/packages}
+% NOTA!:
+% usar \addchap cuando se quiere mostrar en el índice (o Toc = Table of contents )}
+%               sin que aparezca la palabra "Capítulo X" en el ToC
+% usar \chapter cuando se quiere mostrar en el índice (o Toc = Table of contents )}
+%               precedido por la palabra "Capítulo X" en el ToC
+%%%%%%% Carátula
+\begin{document}
+\onehalfspacing
+%\clearpairofpagestyles % remove the defaults (for page numbering)
+%%%%%%%%%%%%%%%
+\input{style/frontmatter01_caratula}
+%\pagestyle{scrheadings}
+\pagenumbering{roman}   % from here: numeracion romana (dummy)
+\cleardoublepage   % page numbering centered
+%\cfoot{\pagemark}
+%%%%%%% Resumen, Dedicatoria y Agradecimiento
+%\input{style/ResumenDedicatoriaAgradecimiento}
+%%%%%%% Índice
+\tableofcontents
+\cleardoublepage      % Para añadir numeración romana a la 2da pag. del ToC.
+\thispagestyle{empty}
+\newpage
+%%%%%%% Índice de tablas y figuras
+
+
+
+\listoftables
+\listoffigures
+
+
+\cleardoublepage       % Forzar salto de página antes de cambiar el estilo de numeración
+\pagenumbering{arabic} % a partir de ahora: numeración árabe de las páginasg
+\ihead[]{\headmark}
+
+%%%%%%% Capítulos
+\input{CHPTRS/CH01_INT/Antecedentes.tex}        \cleardoublepage
+\input{CHPTRS/CH02_SA/Estado-del-arte.tex}      \cleardoublepage 
+\input{CHPTRS/CH03_DICON/Diseno-Conceptual.tex} \cleardoublepage 
+\input{CHPTRS/CH04_DISEÑO/DiseñoAsistente}       \clearpage
+\input{CHPTRS/CH05_END/Conclusiones.tex}        \cleardoublepage 
+
+%%%%%%% Bibliografía
+% para citar ... \cite{}.
+%\chapter{Bibliograf\'ia} % no needed, the option "title={Bibliograf\'ia" adds the chapter.}
+\printbibliography[heading=bibintoc,title={Bibliograf\'ia}]
+\ihead[]{Bibliograf\'ia}
+\cleardoublepage
+%\end{thebibliography}
+
+%%%%%%% Anexos
+\input{ANNEX/mainAnexos}
+
+\end{document}
