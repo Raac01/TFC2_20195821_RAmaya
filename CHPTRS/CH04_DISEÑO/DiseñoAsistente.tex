@@ -3,8 +3,35 @@
 \label{ch:CH04-Diseno-Asistente}
 
 \section{Ubicación del dispositivo}
-\subsection{Medidas antropométricas}
+En la sección anterior se determinó que el concepto de solución óptimo es aquel con forma de banda braquial. Sin embargo, se debe asegurar y justificar que se podrá obtener adecuadamente los datos de la frecuencia cardíaca en dicha posición del asistente. A continuación se muestran los fundamentos en la cual se demuestra la fiabilidad de la posición.
+
+
+\subsection{Sensor en el brazo}
+Un estudio realizado por \textcite{4.arm} demostró que la señal obtenida en el brazo de frecuencia cardíaca presenta mayor calidad y estabilidad en comparación con la obtenida en la muñeca, como en los relojes inteligentes. Los autores señalan que esto se debe a que, al estar ubicado el sensor en la zona braquial, existe menor interferencia causada por movimiento de los usuarios. Asimismo, mencionan que al encontrarse en una posición más cercana al corazón, también mejora la calidad de la señal a comparación de posiciones más bajas.\\
+
+Los resultados de la investigación muestran que el 45\% de las señales registradas en el brazo fueron clasificadas como buenas o excelentes, mientras que menos del 15\% de las señales de la muñeca alcanzaron ese nivel como se puede apreciar en la Figura~\ref{fig:comparaciúnUbicación}. Asimismo, el estudio destaca que la posición optima del sensor es aproximadamente 3 centímetros por encima del codo y en la cara externa del bicep, lo cual coincide con la que se plantea en el concepto de solución óptimo.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{CHPTRS/CH04_DISEÑO/imagenes/arm.png}
+\caption{Comparación de señal entre brazo y muñeca}
+\label{fig:comparaciúnUbicación}
+\captionsetup{justification=centering,margin=1cm}
+\caption*{\textit{Nota: Figura tomada de \cite{4.arm}}}
+\end{figure}
+
 \subsection{Señal del sensor}
+
+Para obtener la frecuencia cardíaca, el sensor utiliza fotopletismografía. Esto consiste en que el sensor emite luz mediante un LED de cierto color, el cual cambia la distancia penetrada en la piel, y mide la luz reflejada por los tejidos con un fotodiodo, como se puede apreciar en la Figura~\ref{fig:ppg}. Esta luz reflejada varia en función de  los cambios en el volumen sanguíneo en los tejidos microvasculares de la piel \autocite{4.ppg}. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{CHPTRS/CH04_DISEÑO/imagenes/ppg.png}
+\caption{Ilustración de medición de reflectancia PPG con multiples colores de led}
+\label{fig:ppg}
+\captionsetup{justification=centering,margin=1cm}
+\caption*{\textit{Nota: Figura tomada de \cite{4.ppgFOTO}}}
+\end{figure}
 
 \section{Diseño electrónico}
 \subsection{Diagrama de bloques}
@@ -12,9 +39,12 @@
 \subsection{Acondicionamiento de señal}
 \subsection{Microprocesador}
 \subsection{Batería del dispositivo}
+\subsection{Regulador de voltaje}
+\subsection{Plano electrónico}
 
 \section{Diseño mecánico}
 \subsection{Selección del material de correa}
+
 \subsection{Selección del material de carcaza}
 \subsubsection{Modelado de la carcaza}
 \subsubsection{Plano de ensamble carcaza}
@@ -22,3 +52,6 @@
 \section{Diseño del software}
 \subsection{Sistema}
 \subsection{Aplicativo}
+
+
+\section{Simulaciones}

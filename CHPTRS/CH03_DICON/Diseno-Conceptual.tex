@@ -6,8 +6,8 @@ En el presente capítulo se presenta el diseño conceptual del asistente propues
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Lista de Requerimientos}
- Para la elaboración de la lista de requerimientos, se considero diversas categorías clave como: función principal, geometría y ergonomía, energía, seguridad, interfaz, comunicaciones, montaje, mantenimiento, software y costos. Asimismo, los requerimientos se clasifican como exigencias (E) o deseos (D), lo que permite establecer prioridades técnicas durante el proceso de diseño. En adición a esto, no se mencionan dimensiones, ya que estas dependerán de la ubicación del asistente.% La lista de requerimientos se encuentra en el \hyperref[an:Annex_B_TablaVaribles]{Anexo B}.
-\input{ANNEX/ListaDeRequerimientos}
+ Para la elaboración de la lista de requerimientos, se considero diversas categorías clave como: función principal, geometría y ergonomía, energía, seguridad, interfaz, comunicaciones, montaje, mantenimiento, software y costos. Asimismo, los requerimientos se clasifican como exigencias (E) o deseos (D), lo que permite establecer prioridades técnicas durante el proceso de diseño. En adición a esto, no se mencionan dimensiones, ya que estas dependerán de la ubicación del asistente. La lista de requerimientos se encuentra en el \hyperref[an:Annex_B_TablaVariables]{Anexo B}.
+%%\input{ANNEX/ListaDeRequerimientos}
 
 % \usepackage{tabularray}
 
@@ -18,7 +18,7 @@ En el presente capítulo se presenta el diseño conceptual del asistente propues
 %]{
 
 \section{Estructura de Funciones}
-En base a la lista de requerimientos definidos, se construye la estructura de funciones del asistente. Como primer paso, se representa el asistente bajo el enfoque de caja negra, el cual permite identificar sus entradas y salidas sin considerar los procesos internos (ver Figura ~\ref{fig:caja negra}). Posteriormente, se descomponen las funciones en bloques que definen el comportamiento del asistente.\\
+En base a la lista de requerimientos definidos, se construye la estructura de funciones del asistente. Como primer paso, se representa el asistente bajo el enfoque de caja negra, el cual permite identificar sus entradas y salidas sin considerar los procesos internos (ver Figura ~\ref{fig:caja negra}). Posteriormente, se descomponen las funciones en bloques que definen el comportamiento del asistente. Asimismo, el gráfico de la estructura de funciones con los dominios es conjunto se encuentra en el \hyperref[an:Annex_estrucutra]{Anexo C}\\
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.73\textwidth]{CHPTRS/CH03_DICON/fig_cap3/Caja Negra.pdf}
@@ -51,7 +51,7 @@ A continuación se describen cada una de las entradas y salidas que se encuentra
     \item Estado del sistema: Indicador visual/sonoro que muestra si el asistente se encuentra encendido o apagado.
 \end{itemize}
 
-\cleardoublepage 
+
 %\includepdf[
  %   pages=1,
   %  pagecommand={},
@@ -59,15 +59,10 @@ A continuación se describen cada una de las entradas y salidas que se encuentra
    % height=\textheight,
    % keepaspectratio  % Mantiene la relación de aspecto
 %]{CHPTRS/CH03_DICON/fig_cap3/Estructura de funciones tesis.pdf}
-\begin{figure}[H]
-\centering
-\includegraphics[width=1\textwidth]{CHPTRS/CH03_DICON/fig_cap3/Estructura de funciones tesis.pdf}
-\caption{Estructura de Funciones}
-\label{fig:estructura}
-\captionsetup{justification=centering,margin=2cm}
-%\caption*{\textit{Elaboración propia}}
-\end{figure}
-\cleardoublepage
+
+%\includepdf[pages=-, pagecommand={}, width=\paperwidth, height=\paperheight]{CHPTRS/CH03_DICON/fig_cap3/Estructura de funciones tesis.pdf}
+
+
 
 
 
@@ -85,7 +80,7 @@ Luego, se tiene a las funciones sujetar electrónica y sujetar actuador, las cua
 \end{figure}
 
 \subsection{Dominio Energía}
-El dominio energía tiene como finalidad asegurar el suministro energético continuo del asistente. Este está compuesto por tres funciones principales como se puedo apreciar en la figura ~\ref{fig:d.energia}. La primera función es almacenar energía eléctrica que representa el componente encargado de contener la energía proveniente de la entrada energía eléctrica. La segunda es habilitar alimentación eléctrica, la cual depende de la instrucción de encendido o apagado realizada por el usuario.\\
+El dominio energía tiene como finalidad asegurar el suministro energético continuo del asistente. Este está compuesto por tres funciones principales como se puedo apreciar en la Figura ~\ref{fig:d.energia}. La primera función es almacenar energía eléctrica que representa el componente encargado de contener la energía proveniente de la entrada energía eléctrica. La segunda es habilitar alimentación eléctrica, la cual depende de la instrucción de encendido o apagado realizada por el usuario.\\
 
 Asimismo, la función energizar el sistema gestiona el flujo energético y la función acondicionar voltaje se encarga de regular la energía almacenada para que sea compatible con los requerimientos eléctricos de los distintos dominios (control, sensores, actuadores, comunicación y procesamiento). Esta función emite una señal de estado del sistema y su operación genera la salida de disipación térmica.Además, recibe una señal del dominio control en caso de que se requiera colocar el asistente en modo de bajo consumo. Finalmente, dado que los componentes forman parte del hardware del asistente, el dominio energía se encuentra estructuralmente integrado dentro de la protección mecánica del asistente.    
 
@@ -359,7 +354,7 @@ Para realizar la evaluación técnica de los conceptos de solución se han defin
 \end{table}
 
 \subsection{Evaluación económica}
-La evaluación económica determina el concepto de solución más viable en términos de costos a través de los cuatro criterios establecidos como se muestra en la Tabla~\ref{tab:E.Economica}. El primer criterio  es el costo de materiales, que hace referencia al precio de los componentes electrónicos y mecánicos necesarios para implementar el asistente. El criterio de repuesto de piezas evalúa la facilidad de sustitución y el costo asociado a la sustitución de componentes en caso de fallos. En el caso de costo de fabricación se considera los recursos económicos para el ensamblado del asistente. Finalmente, el costo de mantenimiento estima los gastos asociados al uso prologando del asistente y posibles intervenciones a lo largo de su vida útil, tales como reemplazo de componentes electrónicos, correa en caso del \ac{CoS}-2 o el sistema planetario del \ac{CoS}-1. Asimismo, para realizar la asignación de los puntajes se realizo una lista de precios preliminar teniendo en cuenta solo los componentes electrónicos más importantes de cada concepto solución, donde se aprecian los precisos por unidad para los repuestos y al por mayor para producción, estas tablas se pueden encontrar en el \hyperref[an:Annex_B_TablaVaribles]{Anexo B}. Los resultados de esta evaluación determinan que el concepto solución 3 es aquel con mayor valor económico, el cual es representado en la variable $Yi$.
+La evaluación económica determina el concepto de solución más viable en términos de costos a través de los cuatro criterios establecidos como se muestra en la Tabla~\ref{tab:E.Economica}. El primer criterio  es el costo de materiales, que hace referencia al precio de los componentes electrónicos y mecánicos necesarios para implementar el asistente. El criterio de repuesto de piezas evalúa la facilidad de sustitución y el costo asociado a la sustitución de componentes en caso de fallos. En el caso de costo de fabricación se considera los recursos económicos para el ensamblado del asistente. Finalmente, el costo de mantenimiento estima los gastos asociados al uso prologando del asistente y posibles intervenciones a lo largo de su vida útil, tales como reemplazo de componentes electrónicos, correa en caso del \ac{CoS}-2 o el sistema planetario del \ac{CoS}-1. Asimismo, para realizar la asignación de los puntajes se realizo una lista de precios preliminar teniendo en cuenta solo los componentes electrónicos más importantes de cada concepto solución, donde se aprecian los precisos por unidad para los repuestos y al por mayor para producción, estas tablas se pueden encontrar en el \hyperref[an:Annex_D_precios_preliminares]{Anexo D}. Los resultados de esta evaluación determinan que el concepto solución 3 es aquel con mayor valor económico, el cual es representado en la variable $Yi$.
 
 \begin{table}[H]
     \centering
@@ -460,9 +455,9 @@ Asimismo, en la Figura~\ref{fig:diagramaDeFlujoApp} se muestra el diagrama de fl
 \captionsetup{justification=centering,margin=1cm}
 %\caption*{\textit{Elaboración propia}}
 \end{figure}
-
+\cleardoublepage
 \subsection{Diagrama de maquina de estados general}
-La Figura~\ref{fig:maquinaDEstadoGeneral} muestra el diagrama de la máquina de estados general que rige el funcionamiento del asistente. Este representa los diferentes estados en los que se puede encontrar el dispositivo, así como las transiciones que se producen en función de las acciones del usuario y los eventos internos del sistema. El estado inicial corresponde al encendido del sistema  y continua con la recepción de la configuración de la sesión. Posteriormente, el asistente puede pasar al modo de reposo IDLE o al estado de monitoreo dependiendo si hay sesión activa. En el estado de monitoreo se incluye el procesamiento de la señal, así como la transmisión de datos y la activación del estado de retroalimentación en caso de detectarse una distracción, en el cual se genera una vibración para alertar al usuario. Una vez que finalice la sesión de estudio, el sistema retorna al estado de reposo o en caso de que se presione el botón durante cualquiera de los otros estados al apagado del sistema.
+La Figura~\ref{fig:maquinaDEstadoGeneral} muestra el diagrama de la máquina de estados general que rige el funcionamiento del asistente. Este representa los diferentes estados en los que se puede encontrar el dispositivo, así como las transiciones que se producen en función de las acciones del usuario y los eventos internos del sistema. El estado inicial corresponde al encendido del sistema  y prosigue con la recepción de la configuración de la sesión. Posteriormente, el asistente puede pasar al modo de reposo IDLE o al estado de monitoreo dependiendo si hay sesión activa. En el estado de monitoreo se incluye el procesamiento de la señal, así como la transmisión de datos y la activación del estado de retroalimentación, en el cual se genera una vibración para alertar al usuario. Una vez que finalice la sesión de estudio, el sistema retorna al estado de reposo o en caso de que se presione el botón durante cualquiera de los otros estados al apagado del sistema.
 
 \begin{figure}[H]
 \centering

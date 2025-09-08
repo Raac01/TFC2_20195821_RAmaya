@@ -5,9 +5,33 @@
 \input{style/styleAcronyms.tex}    
 \cleardoublepage 
 %%%%%%%%% ANNEX B
+\chapter{Lista de requerimientos}
+\label{an:Annex_B_TablaVariables}
+\input{ANNEX/Anexo_B_TablaVariables}
+\cleardoublepage
+%%%%%%%%% ANNEX C
+
+
+
+\chapter{Estructura de Funciones}
+\label{an:Annex_estrucutra}
+Con el fin de preservar la legibilidad del diagrama, la estructura de funciones se presenta en la página siguiente en tamaño A3. De esta manera se garantiza que los elementos y conexiones puedan visualizarse con claridad, sin pérdida de detalle.
+
+% Forzar salto de página: el capítulo en A4, la figura en la siguiente
+\clearpage 
+
+\includepdf[
+  pages=-,
+  pagecommand={\thispagestyle{empty}}, % sin título ni número
+  fitpaper=true,
+  paper=a3paper
+]{CHPTRS/CH03_DICON/fig_cap3/Estructura de funciones tesis.pdf}
+
+
+
 \chapter{Listas de precios preliminar para el análisis económico}
-\label{an:Annex_B_TablaVaribles}
-\input{ANNEX/Anexo_B_TablaVariables.tex}
+\label{an:Annex_D_precios_preliminares}
+\input{ANNEX/Anexo_D_precios_preliminares.tex}
 \cleardoublepage
 %%%%%%%%% ANNEX C
 %\chapter{Precio del software A}
