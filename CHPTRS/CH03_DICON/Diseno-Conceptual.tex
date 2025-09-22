@@ -188,7 +188,7 @@ Por otro lado, los datos recibidos por el sistema son procesados mediante la fun
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth]{CHPTRS/CH03_DICON/fig_cap3/Dominio software.pdf}
+\includegraphics[width=0.95\textwidth]{CHPTRS/CH03_DICON/fig_cap3/Dominio software.pdf}
 \caption{Dominio software del asistente}
 \label{fig:d.software}
 \captionsetup{justification=centering,margin=2cm}
@@ -265,6 +265,7 @@ La matriz morfológica permite evaluar diferentes soluciones técnicas para las 
     \caption{Matriz morfológica del dominio Sensores}
     \includegraphics[width=0.8\textwidth]{CHPTRS/CH03_DICON/fig_matriz/Matriz sensores .pdf}
 \end{table}
+\cleardoublepage
 
 \item{Matriz morfológica del dominio Mecánica} 
 \begin{table}[H]
@@ -291,7 +292,7 @@ El primer concepto solución, tiene la forma de un anillo inteligente como se pu
 
 
 \subsection{Concepto de solución 2 - Banda braquial}
-El segundo concepto de solución (ver Figura~\ref{fig:d.conceptual2}) consiste en un asistente en forma de pulsera, diseñada para ser usada alrededor del brazo. La correa incorpora un sistema de cierre magnético que permite un ajuste preciso. Asimismo, la batería Li-Po, el microcontrolador DA14531, el regulador de voltaje, el motor de vibración, el sensor de pulso cardíaco y el amplificador operacional están contenidos en una carcasa rígida central en forma de caja, sostenida por la correa mencionada. Además, para garantizar una lectura confiable, la carcasa cuenta con un orificio en la parte central inferior, a través del cual el sensor mantiene contacto directo con la piel del brazo donde se captará la señal fisiológica que pasará por una etapa de amplificación y filtrado antes del análisis estadístico. Por otro lado, la retroalimentación se obtendrá a partir del motor de vibración al determinar un estado de distracción través de la activación de una señal PWM del microcontrolador. Este estado es el resultado del clasificador basado en aprendizaje automático. Por último, se debe mencionar que el usuario podrá establecer la duración de la sesión de estudio y visualizar sus estadísticas a través de una interfaz en un dispositivo móvil.\\
+El segundo concepto de solución (ver Figura~\ref{fig:d.conceptual2}) consiste en un asistente en forma de pulsera, diseñada para ser usada alrededor del brazo. La correa incorpora un sistema de cierre magnético que permite un ajuste preciso. Asimismo, la batería Li-Po, el microcontrolador ESP32-C3, el regulador de voltaje, el motor de vibración, el sensor de pulso cardíaco y el amplificador operacional están contenidos en una carcasa rígida central en forma de caja, sostenida por la correa mencionada. Además, para garantizar una lectura confiable, la carcasa cuenta con un orificio en la parte central inferior, a través del cual el sensor mantiene contacto directo con la piel del brazo donde se captará la señal fisiológica que pasará por una etapa de amplificación y filtrado antes del análisis estadístico. Por otro lado, la retroalimentación se obtendrá a partir del motor de vibración al determinar un estado de distracción través de la activación de una señal PWM del microcontrolador. Este estado es el resultado del clasificador basado en aprendizaje automático. Por último, se debe mencionar que el usuario podrá establecer la duración de la sesión de estudio y visualizar sus estadísticas a través de una interfaz en un dispositivo móvil.\\
 
 \begin{figure}[H]
 \centering
@@ -303,7 +304,7 @@ El segundo concepto de solución (ver Figura~\ref{fig:d.conceptual2}) consiste e
 \end{figure}
 
 \subsection{Concepto de solución 3 - Cinturón}
-El tercer concepto de solución consiste en un asistente en forma de cinturón, diseñado para colocarse alrededor de la parte baja del torso como se puede apreciar en la Figura~\ref{fig:d.conceptual3}. Los componentes electrónicos como la batería NiMh, el microcontrolador ESP32-C3, el regulador, el zumbador piezoeléctrico y el sensor estarán contenidos en una carcasa paralelepípeda, la  cual estará sostenida por la correa con ajuste por hebilla. En este caso, se utiliza un acelerómetro para monitorizar la frecuencia respiratoria a través de los movimientos del abdomen. La señal del sensor varía con los movimientos rítmicos de la respiración y es enviada a una etapa de amplificación y filtrado para su posterior análisis estadístico. En caso de detectarse un estado de distracción, el sistema activa una retroalimentación por del zumbador piezoeléctrico  a través de una señal digital ON/OFF por el microcontrolador. Asimismo, el usuario puede establecer la duración de la sesión y visualizar sus resultados mediante una interfaz gráfica en una computadora.
+El tercer concepto de solución consiste en un asistente en forma de cinturón, diseñado para colocarse alrededor de la parte baja del torso como se puede apreciar en la Figura~\ref{fig:d.conceptual3}. Los componentes electrónicos como la batería NiMh, el microcontrolador DA14531, el regulador, el zumbador piezoeléctrico y el sensor estarán contenidos en una carcasa paralelepípeda, la  cual estará sostenida por la correa con ajuste por hebilla. En este caso, se utiliza un acelerómetro para monitorizar la frecuencia respiratoria a través de los movimientos del abdomen. La señal del sensor varía con los movimientos rítmicos de la respiración y es enviada a una etapa de amplificación y filtrado para su posterior análisis estadístico. En caso de detectarse un estado de distracción, el sistema activa una retroalimentación por del zumbador piezoeléctrico  a través de una señal digital ON/OFF por el microcontrolador. Asimismo, el usuario puede establecer la duración de la sesión y visualizar sus resultados mediante una interfaz gráfica en una computadora.
 
 \begin{figure}[H]
 \centering
@@ -322,7 +323,7 @@ El tercer concepto de solución consiste en un asistente en forma de cinturón, 
     \hspace{-0.7cm}\underline{Leyenda:}
     
     \begin{itemize}
-    \item  Puntaje $pX$, donde $X \in \mathbb{N} = \{0, 1, 2, 3, 4\}$ (Escala de Valores según VDI 2225) y se establece: 0 = No satisface, 1 = Apenas satisface, 2 = Suficiente, 3 = Bien, 4 = Excelente. 
+    \item  Puntaje $pX$, donde $X \in \mathbb{N} = \{0, 1, 2, 3, 4\}$ (Escala de Valores según VDI 2225) y se establece: 4 = Excelente,3 = Bien, 2 = Suficiente, 1 = Apenas satisface, 0 = No satisface. 
     \item Peso ponderado $qX$, donde $X \in \mathbb{N} = \{0, 1, 2, 3, 4\}$ en función de la importancia de los criterios de evaluación y se establece: 4 = muy importante, 3 = importante, 2 = poco importante, 1 = apenas importante, 0 = no importante.
     \end{itemize}
     
@@ -440,7 +441,7 @@ Asimismo, en la Figura~\ref{fig:diagramaDeFlujoApp} se muestra el diagrama de fl
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.5\textwidth]{CHPTRS/CH03_DICON/fig_conceptos/Daigramas de Flujo TESIS.pdf}
+\includegraphics[width=0.63\textwidth]{CHPTRS/CH03_DICON/fig_conceptos/Daigramas de Flujo TESIS.pdf}
 \caption{Diagrama de flujo general del microcontrolador}
 \label{fig:diagramaDeFlujo}
 \captionsetup{justification=centering,margin=1cm}
@@ -449,14 +450,14 @@ Asimismo, en la Figura~\ref{fig:diagramaDeFlujoApp} se muestra el diagrama de fl
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.5\textwidth]{CHPTRS/CH03_DICON/fig_conceptos/Daigramas de Flujo Aplicativo.pdf}
+\includegraphics[width=0.6\textwidth]{CHPTRS/CH03_DICON/fig_conceptos/Daigramas de Flujo Aplicativo.pdf}
 \caption{Diagrama de flujo general del aplicativo}
 \label{fig:diagramaDeFlujoApp}
 \captionsetup{justification=centering,margin=1cm}
 %\caption*{\textit{Elaboración propia}}
 \end{figure}
 \cleardoublepage
-\subsection{Diagrama de maquina de estados general}
+\subsection{Diagrama de máquina de estados general}
 La Figura~\ref{fig:maquinaDEstadoGeneral} muestra el diagrama de la máquina de estados general que rige el funcionamiento del asistente. Este representa los diferentes estados en los que se puede encontrar el dispositivo, así como las transiciones que se producen en función de las acciones del usuario y los eventos internos del sistema. El estado inicial corresponde al encendido del sistema  y prosigue con la recepción de la configuración de la sesión. Posteriormente, el asistente puede pasar al modo de reposo IDLE o al estado de monitoreo dependiendo si hay sesión activa. En el estado de monitoreo se incluye el procesamiento de la señal, así como la transmisión de datos y la activación del estado de retroalimentación, en el cual se genera una vibración para alertar al usuario. Una vez que finalice la sesión de estudio, el sistema retorna al estado de reposo o en caso de que se presione el botón durante cualquiera de los otros estados al apagado del sistema.
 
 \begin{figure}[H]
