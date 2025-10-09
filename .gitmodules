@@ -1,0 +1,9 @@
+[submodule "TFC2-20195821-SW"]
+	path = TFC2-20195821-SW
+	url = https://github.com/Raac01/TFC2-20195821-SW.git
+[submodule "TFC2-20195821-HW"]
+	path = TFC2-20195821-HW
+	url = https://github.com/Raac01/TFC2-20195821-HW.git
+[submodule "TFC2-20195821-LaTeX"]
+	path = TFC2-20195821-LaTeX
+	url = https://github.com/RicardoAmaya01/TFC2-20195821-LaTeX.git
